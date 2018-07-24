@@ -1,17 +1,15 @@
 package models;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "stock", uniqueConstraints = {
-		@UniqueConstraint(columnNames = "STOCK_NAME"),
-		@UniqueConstraint(columnNames = "STOCK_CODE") })
+@Table(name = "stock")
 public class Stock implements java.io.Serializable {
 
 	private Integer stockId;
@@ -37,7 +35,7 @@ public class Stock implements java.io.Serializable {
 		this.stockId = stockId;
 	}
 
-	@Column(name = "STOCK_CODE", unique = true, nullable = false, length = 10)
+	@Column(name = "STOCK_CODE")
 	public String getStockCode() {
 		return this.stockCode;
 	}
@@ -46,7 +44,7 @@ public class Stock implements java.io.Serializable {
 		this.stockCode = stockCode;
 	}
 
-	@Column(name = "STOCK_NAME", unique = true, nullable = false, length = 20)
+	@Column(name = "STOCK_NAME")
 	public String getStockName() {
 		return this.stockName;
 	}
